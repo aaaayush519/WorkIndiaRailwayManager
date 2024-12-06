@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Trains</title>
+</head>
+<body>
+<div th:replace="index :: content">
+    <h2>Search Trains</h2>
+    <form action="/api/user/trains" method="get">
+        <label for="source">Source:</label>
+        <input type="text" id="source" name="source" required>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <div th:if="${trains}">
+        <h3>Available Trains</h3>
+        <table>
+            <tr>
+                <th>Train ID</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Available Seats</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="train : ${trains}">
+                <td th:text="${train.id}"></td>
+                <td th:text="${train.source}"></td>
+                <td th:text="${train.destination}"></td>
+                <td th:text="${train.availableSeats}"></td>
+                <td>
+                    <a th:href="'/user/book-seat/' + ${train.id}">Book</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

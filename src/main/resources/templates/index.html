@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Railway Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Railway Management System</h1>
+    <nav>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <a href="/admin/add-train">Admin</a>
+        <a href="/user/search-train">Search Trains</a>
+    </nav>
+</header>
+<main>
+    <section th:replace="${content}"></section>
+</main>
+<footer>
+    <p>&copy; 2024 Railway Management System</p>
+</footer>
+</body>
+</html>

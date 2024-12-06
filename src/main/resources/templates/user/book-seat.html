@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Seat</title>
+</head>
+<body>
+<div th:replace="index :: content">
+    <h2>Book Seat</h2>
+    <form action="/api/user/book" method="post">
+        <label for="trainId">Train ID:</label>
+        <input type="text" id="trainId" name="trainId" value="${trainId}" readonly>
+
+        <label for="source">Source:</label>
+        <input type="text" id="source" name="source" required>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
+
+        <button type="submit">Book</button>
+    </form>
+</div>
+</body>
+</html>
